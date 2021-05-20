@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/20 17:24:47 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/20 17:36:18 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ typedef struct s_memory
 }	t_memory;
 
 int		main(int argc, char *argv[]);
+int		check_n_parse(t_memory *mem, char **list_origin, int argc);
 
 #endif
