@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:13:10 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/20 16:31:57 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/20 17:24:55 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,29 +45,46 @@ char	**rm_first(char **list_origin, int argc)
 	return (list_mod);
 }
 
-int		checker(char **list_origin, int argc)
+int	isunique(int num, int *pile_a)
 {
-	char		**list_mod;
-	long long	i;
-	long long	number;
-
-	i = 0;
-	list_mod = rm_first(list_origin, argc);
-	while (list_mod[i])
+	while (*pile_a)
 	{
-		if (isnum(list_mod[i]))
-			number = ft_atoi(list_mod[i]);
-		else
+		if (*pile_a == num)
 			exit_fail();
-		i++;
-		if (!(number <= INT_MAX && number >= INT_MIN))
-			exit_fail();
+		pile_a++;
 	}
 	return (1);
 }
 
-int		main(int argc, char *argv[])
+int	check_n_parse(t_memory *mem, char **list_origin, int argc)
 {
-	checker(argv, argc);
+	char		**list_mod;
+	long long	i;
+	long long	num;
+
+	i = 0;
+	mem->pile_a = (int *)malloc(sizeof(int) * argc);
+	list_mod = rm_first(list_origin, argc);
+	while (list_mod[i])
+	{
+		if (isnum(list_mod[i]))
+			num = ft_atoi(list_mod[i]);
+		else
+			exit_fail();
+		if (i > 0 && (!isunique(num, mem->pile_a)))
+			exit_fail();
+		mem->pile_a[i] = num;
+		printf("%d\n", mem->pile_a[i]);
+		i++;
+	}
+	return (1);
+}
+
+int	main(int argc, char *argv[])
+{
+	t_memory	mem;
+
+	ft_bzero(&mem, sizeof(mem));
+	check_n_parse(&mem, argv, argc);
 	exit(EXIT_SUCCESS);
 }

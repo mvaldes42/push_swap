@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/20 15:36:09 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/20 17:24:47 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,20 @@ typedef struct s_stack
 {
 	char			*element;
 	struct s_stack	*next;
-}t_stack;
+}	t_stack;
 
 typedef struct s_piles
 {
 	t_stack	list_a;
 	t_stack	list_b;
-}t_piles;
+}	t_piles;
+
+typedef struct s_memory
+{
+	int	*pile_a;
+	int	*pile_b;
+	int	mid;
+}	t_memory;
 
 int		main(int argc, char *argv[]);
 
