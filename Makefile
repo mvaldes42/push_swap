@@ -6,13 +6,14 @@
 #    By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 12:16:14 by mvaldes           #+#    #+#              #
-#    Updated: 2021/05/20 16:30:07 by mvaldes          ###   ########.fr        #
+#    Updated: 2021/05/20 18:05:39 by mvaldes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= push_swap
 
-SRCS = push_swap.c
+SRCS =	push_swap.c \
+		check_n_parse.c
 OBJS = $(SRCS:.c=.o)
 CC = @gcc
 RM = @/bin/rm -f
