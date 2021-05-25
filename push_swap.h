@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/25 15:48:10 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/25 17:16:09 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	exit_fail(void);
 char	isnum(char *c);
 int		ft_abs (int i);
 int		word_count(const char *s, char c);
-void	print_array(int *array);
+void	print_piles(t_memory *mem);
 
 void	check_n_parse(t_memory *mem, char **list_origin, int argc);
 void	sort_prms(t_memory *mem);

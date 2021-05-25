@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:03:27 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/25 15:40:24 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/25 17:28:15 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,25 @@ int	word_count(const char *s, char c)
 	return (count);
 }
 
-void	print_array(int *array)
+void	print_piles(t_memory *mem)
 {
 	int	i;
 
-	i = -1;
-	while (array[++i])
-		printf("[%d][%d]\n", i, array[i]);
+	i = 0;
+	while (mem->pile_a[i] || mem->pile_b[i])
+	{
+		printf("[%3d]", i);
+		if (mem->pile_a[i])
+			printf("[%3d]",mem->pile_a[i]);
+		else
+			printf("[...]");
+		if (mem->pile_b[i])
+			printf("[%3d]\n", mem->pile_b[i]);
+		else
+			printf("[...]\n");
+		i++;
+	}
+	printf("\n");
 }
 
 // char	**rm_first(char **list_origin, int argc)
