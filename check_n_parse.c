@@ -6,40 +6,13 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:35:08 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/25 15:00:08 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/25 15:16:59 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	isnum(char *c)
-{
-	while (*c)
-	{
-		if (*c >= '0' && *c <= '9')
-			c++;
-		else
-			exit_fail();
-	}
-	return (1);
-}
-
-// char	**rm_first(char **list_origin, int argc)
-// {
-// 	char			**list_mod;
-// 	long long		i;
-
-// 	i = 0;
-// 	list_mod = (char **)malloc(sizeof(char *) * argc);
-// 	while (list_origin[i + 1])
-// 	{
-// 		list_mod[i] = ft_strdup(list_origin[i + 1]);
-// 		i++;
-// 	}
-// 	return (list_mod);
-// }
-
-int	isunique(int num, int *pile_a)
+static int	isunique(int num, int *pile_a)
 {
 	while (*pile_a)
 	{
@@ -50,7 +23,7 @@ int	isunique(int num, int *pile_a)
 	return (1);
 }
 
-void	count_size_prms(t_memory *mem, char **list_origin)
+static void	count_size_prms(t_memory *mem, char **list_origin)
 {
 	int	i;
 	int	j;
@@ -69,7 +42,7 @@ void	count_size_prms(t_memory *mem, char **list_origin)
 	}
 }
 
-char	*concatenate_args(t_memory *mem, char **list_origin)
+static char	*concatenate_args(t_memory *mem, char **list_origin)
 {
 	int		i;
 	int		j;
@@ -93,28 +66,7 @@ char	*concatenate_args(t_memory *mem, char **list_origin)
 	return (concatenated);
 }
 
-static int		word_count(const char *s, char c)
-{
-	unsigned int	i;
-	unsigned int	count;
-
-	i = 0;
-	count = 0;
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		if (s[i])
-			count++;
-		while (s[i] != c && s[i])
-			i++;
-	}
-	if (count == 0)
-		exit_fail();
-	return (count);
-}
-
-int	check_n_parse(t_memory *mem, char **list_origin, int argc)
+void	check_n_parse(t_memory *mem, char **list_origin, int argc)
 {
 	long long	i;
 	long long	num;
@@ -135,8 +87,6 @@ int	check_n_parse(t_memory *mem, char **list_origin, int argc)
 		(i > 0 && (!isunique(num, mem->pile_a))))
 			exit_fail();
 		mem->pile_a[i] = num;
-		printf("%d\n", mem->pile_a[i]);
 		i++;
 	}
-	return (1);
 }
