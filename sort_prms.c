@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 10:42:20 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/26 10:59:48 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	sort_prms_cmds(t_memory *mem)
 {
 	mem->pivot = mem->mid;
 	print_piles(mem->pile_a, mem->pile_b);
-	print_output(mem, "pb");
+	exec_n_print(mem, "pb");
 	print_piles(mem->pile_a, mem->pile_b);
-	print_output(mem, "pa");
+	exec_n_print(mem, "pa");
 	print_piles(mem->pile_a, mem->pile_b);
-	print_output(mem, "pb");
+	exec_n_print(mem, "pb");
 	print_piles(mem->pile_a, mem->pile_b);
 }
 

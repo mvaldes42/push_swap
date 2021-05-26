@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 10:53:50 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/26 10:59:51 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		rotate(int *pile);
 int		push(int *pile_from, int *pile_to);
 int		swap(int *pile);
 
-void	print_output(t_memory *mem, char *operation);
+void	exec_n_print(t_memory *mem, char *operation);
 
 void	check_n_parse(t_memory *mem, char **list_origin, int argc);
 void	sort_prms(t_memory *mem);
