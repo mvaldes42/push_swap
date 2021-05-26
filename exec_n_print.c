@@ -6,92 +6,92 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:33:44 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 15:09:58 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/26 15:27:08 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	exec_swap(int *pile_a, int *pile_b, char c)
+static int	exec_n_print_swap(int *pile_a, int *pile_b, char c)
 {
-	int	ope_a_worked;
-	int	ope_b_worked;
+	int	a;
+	int	b;
 
-	ope_a_worked = 0;
-	ope_b_worked = 0;
-	if ((c == 'a' || c == '0') && swap(pile_a))
-		ope_a_worked = 1;
-	if ((c == 'b' || c == '0') && swap(pile_b))
-		ope_b_worked = 1;
-	if (ope_a_worked && ope_b_worked)
-		printf("ss\n");
-	else if (ope_a_worked)
-		printf("sa\n");
-	else if (ope_b_worked)
-		printf("sb\n");
+	a = 0;
+	b = 0;
+	if ((c == LIST_A || c == BOTH_LST) && swap(pile_a))
+		a = 1;
+	if ((c == LIST_B || c == BOTH_LST) && swap(pile_b))
+		b = 1;
+	if (a && b)
+		printf(SWAP_ALL);
+	else if (a)
+		printf(SWAP_A);
+	else if (b)
+		printf(SWAP_B);
 	return (1);
 }
 
-int	exec_push(int *pile_a, int *pile_b, char c)
+static int	exec_n_print_push(int *pile_a, int *pile_b, char c)
 {
-	if (c == 'a' && push(pile_a, pile_b))
-		printf("pa\n");
+	if (c == LIST_A && push(pile_a, pile_b))
+		printf(PUSH_A);
 	else if (push(pile_b, pile_a))
-		printf("pb\n");
+		printf(PUSH_B);
 	return (1);
 }
 
-int	exec_reverse_rotate(int *pile_a, int *pile_b, char c)
+static int	exec_n_print_reverse_rotate(int *pile_a, int *pile_b, char c)
 {
-	int	ope_a_worked;
-	int	ope_b_worked;
+	int	a;
+	int	b;
 
-	ope_a_worked = 0;
-	ope_b_worked = 0;
-	if ((c == 'a' || c == '0') && reverse_rotate(pile_a))
-		ope_a_worked = 1;
-	if ((c == 'b' || c == '0') && reverse_rotate(pile_b))
-		ope_b_worked = 1;
-	if (ope_a_worked && ope_b_worked)
-		printf("rrr\n");
-	else if (ope_a_worked)
-		printf("rra\n");
-	else if (ope_b_worked)
-		printf("rrb\n");
+	a = 0;
+	b = 0;
+	if ((c == LIST_A || c == BOTH_LST) && reverse_rotate(pile_a))
+		a = 1;
+	if ((c == LIST_B || c == BOTH_LST) && reverse_rotate(pile_b))
+		b = 1;
+	if (a && b)
+		printf(REVERSE_ROTATE_ALL);
+	else if (a)
+		printf(REVERSE_ROTATE_A);
+	else if (b)
+		printf(REVERSE_ROTATE_B);
 	return (1);
 }
 
-int	exec_rotate(int *pile_a, int *pile_b, char c)
+static int	exec_n_print_rotate(int *pile_a, int *pile_b, char c)
 {
-	int	ope_a_worked;
-	int	ope_b_worked;
+	int	a;
+	int	b;
 
-	ope_a_worked = 0;
-	ope_b_worked = 0;
-	if ((c == 'a' || c == '0') && rotate(pile_a))
-		ope_a_worked = 1;
-	if ((c == 'b' || c == '0') && rotate(pile_b))
-		ope_b_worked = 1;
-	if (ope_a_worked && ope_b_worked)
+	a = 0;
+	b = 0;
+	if ((c == LIST_A || c == BOTH_LST) && rotate(pile_a))
+		a = 1;
+	if ((c == LIST_B || c == BOTH_LST) && rotate(pile_b))
+		b = 1;
+	if (a && b)
 		printf("rr\n");
-	else if (ope_a_worked)
+	else if (a)
 		printf("ra\n");
-	else if (ope_b_worked)
+	else if (b)
 		printf("rb\n");
 	return (1);
 }
 
-void	exec_n_print(t_memory *mem, char *op, char pile_n)
+void	exec_n_print(t_memory *mem, char *operation, char pile_n)
 {
-	int	sz;
+	int	length;
 
-	sz = ft_strlen(op);
-	if (ft_strncmp(op, "swap", sz) == 0)
-		exec_swap(mem->pile_a, mem->pile_b, pile_n);
-	else if (ft_strncmp(op, "push", sz) == 0)
-		exec_push(mem->pile_a, mem->pile_b, pile_n);
-	else if (ft_strncmp(op, "reverse_rr", sz) == 0)
-		exec_reverse_rotate(mem->pile_a, mem->pile_b, pile_n);
-	else if (ft_strncmp(op, "rotate", sz) == 0)
-		exec_rotate(mem->pile_a, mem->pile_b, pile_n);
+	length = ft_strlen(operation);
+	if (ft_strncmp(operation, SWAP, length) == 0)
+		exec_n_print_swap(mem->pile_a, mem->pile_b, pile_n);
+	else if (ft_strncmp(operation, PUSH, length) == 0)
+		exec_n_print_push(mem->pile_a, mem->pile_b, pile_n);
+	else if (ft_strncmp(operation, REVERSE_ROTATE, length) == 0)
+		exec_n_print_reverse_rotate(mem->pile_a, mem->pile_b, pile_n);
+	else if (ft_strncmp(operation, ROTATE, length) == 0)
+		exec_n_print_rotate(mem->pile_a, mem->pile_b, pile_n);
 }

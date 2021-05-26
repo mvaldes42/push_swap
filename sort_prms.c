@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 15:10:59 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/26 15:15:59 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@ void	sort_prms_cmds(t_memory *mem)
 {
 	mem->pivot = mem->mid;
 	print_piles(mem->pile_a, mem->pile_b);
-	exec_n_print(mem, "swap", 'a');
+	exec_n_print(mem, SWAP, LIST_A);
 	print_piles(mem->pile_a, mem->pile_b);
-	exec_n_print(mem, "push", 'a');
+	exec_n_print(mem, PUSH, LIST_A);
 	print_piles(mem->pile_a, mem->pile_b);
-	exec_n_print(mem, "push", 'a');
+	exec_n_print(mem, PUSH, LIST_A);
 	print_piles(mem->pile_a, mem->pile_b);
-	exec_n_print(mem, "push", 'a');
+	exec_n_print(mem, PUSH, LIST_A);
 	print_piles(mem->pile_a, mem->pile_b);
-	exec_n_print(mem, "push", 'b');
+	exec_n_print(mem, PUSH, LIST_B);
 	print_piles(mem->pile_a, mem->pile_b);
-	exec_n_print(mem, "swap", 'b');
+	exec_n_print(mem, SWAP, LIST_B);
 	print_piles(mem->pile_a, mem->pile_b);
-	exec_n_print(mem, "swap", '0');
+	exec_n_print(mem, SWAP, BOTH_LST);
 	print_piles(mem->pile_a, mem->pile_b);
-	exec_n_print(mem, "reverse_rr", '0');
+	exec_n_print(mem, REVERSE_ROTATE, BOTH_LST);
 	print_piles(mem->pile_a, mem->pile_b);
 }
 
