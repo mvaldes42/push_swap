@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 10:59:51 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/26 15:04:36 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ typedef struct s_memory
 	float	avrg;
 	int		mid;
 	int		pivot;
-	int		ope_a_worked;
-	int		ope_b_worked;
 }	t_memory;
 
 void	exit_fail(void);
@@ -47,7 +45,7 @@ int		rotate(int *pile);
 int		push(int *pile_from, int *pile_to);
 int		swap(int *pile);
 
-void	exec_n_print(t_memory *mem, char *operation);
+void	exec_n_print(t_memory *mem, char *op, char pile);
 
 void	check_n_parse(t_memory *mem, char **list_origin, int argc);
 void	sort_prms(t_memory *mem);

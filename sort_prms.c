@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 10:59:48 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/26 15:10:59 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,21 @@ void	sort_prms_cmds(t_memory *mem)
 {
 	mem->pivot = mem->mid;
 	print_piles(mem->pile_a, mem->pile_b);
-	exec_n_print(mem, "pb");
+	exec_n_print(mem, "swap", 'a');
 	print_piles(mem->pile_a, mem->pile_b);
-	exec_n_print(mem, "pa");
+	exec_n_print(mem, "push", 'a');
 	print_piles(mem->pile_a, mem->pile_b);
-	exec_n_print(mem, "pb");
+	exec_n_print(mem, "push", 'a');
+	print_piles(mem->pile_a, mem->pile_b);
+	exec_n_print(mem, "push", 'a');
+	print_piles(mem->pile_a, mem->pile_b);
+	exec_n_print(mem, "push", 'b');
+	print_piles(mem->pile_a, mem->pile_b);
+	exec_n_print(mem, "swap", 'b');
+	print_piles(mem->pile_a, mem->pile_b);
+	exec_n_print(mem, "swap", '0');
+	print_piles(mem->pile_a, mem->pile_b);
+	exec_n_print(mem, "reverse_rr", '0');
 	print_piles(mem->pile_a, mem->pile_b);
 }
 
