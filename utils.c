@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:03:27 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 10:53:40 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/26 15:58:10 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	isnum(char *c)
 	return (1);
 }
 
-int	ft_abs (int i)
+float	ft_abs (float i)
 {
 	if (i < 0)
 		return (-i);

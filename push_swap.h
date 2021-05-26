@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 15:28:11 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/26 16:01:16 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <float.h>
 
 # define PUSH "push"
 # define SWAP "swap"
@@ -41,6 +42,25 @@
 # define REVERSE_ROTATE_B "rrb\n"
 # define REVERSE_ROTATE_ALL "rrr\n"
 
+/// TO DELETE BEFORE FINISHING : ONLY EASIER TO CODE
+# define __F_PRINT_LST__ print_piles(mem->pile_a, mem->pile_b);
+
+# define F_SWAP_A exec_n_print(mem, SWAP, LIST_A);
+# define F_SWAP_B exec_n_print(mem, SWAP, LIST_B);
+# define F_SWAP_ALL exec_n_print(mem, SWAP, BOTH_LST);
+
+# define F_PUSH_A exec_n_print(mem, PUSH, LIST_A);
+# define F_PUSH_B exec_n_print(mem, PUSH, LIST_B);
+
+# define F_ROTATE_A exec_n_print(mem, ROTATE, LIST_A);
+# define F_ROTATE_B exec_n_print(mem, ROTATE, LIST_B);
+# define F_ROTATE_ALL exec_n_print(mem, ROTATE, BOTH_LST);
+
+# define F_REVERSE_ROTATE_A exec_n_print(mem, REVERSE_ROTATE, LIST_A);
+# define F_REVERSE_ROTATE_B exec_n_print(mem, REVERSE_ROTATE, LIST_B);
+# define F_REVERSE_ROTATE_ALL exec_n_print(mem, REVERSE_ROTATE, BOTH_LST);
+/////////
+
 typedef struct s_memory
 {
 	int		size_spc;
@@ -56,7 +76,7 @@ typedef struct s_memory
 
 void	exit_fail(void);
 int		isnum(char *c);
-int		ft_abs (int i);
+float	ft_abs (float i);
 int		word_count(const char *s, char c);
 void	print_piles(int *pile_a, int *pile_b);
 int		size_of_array(int *pile);
