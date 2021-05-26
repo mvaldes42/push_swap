@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:03:27 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/25 17:28:15 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/26 10:53:40 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	exit_fail(void)
 	exit(EXIT_FAILURE);
 }
 
-char	isnum(char *c)
+int	isnum(char *c)
 {
 	while (*c)
 	{
@@ -59,38 +59,23 @@ int	word_count(const char *s, char c)
 	return (count);
 }
 
-void	print_piles(t_memory *mem)
+void	print_piles(int *pile_a, int *pile_b)
 {
 	int	i;
 
 	i = 0;
-	while (mem->pile_a[i] || mem->pile_b[i])
+	while (pile_a[i] || pile_b[i])
 	{
 		printf("[%3d]", i);
-		if (mem->pile_a[i])
-			printf("[%3d]",mem->pile_a[i]);
+		if (pile_a[i])
+			printf("[%3d]", pile_a[i]);
 		else
 			printf("[...]");
-		if (mem->pile_b[i])
-			printf("[%3d]\n", mem->pile_b[i]);
+		if (pile_b[i])
+			printf("[%3d]\n", pile_b[i]);
 		else
 			printf("[...]\n");
 		i++;
 	}
 	printf("\n");
 }
-
-// char	**rm_first(char **list_origin, int argc)
-// {
-// 	char			**list_mod;
-// 	long long		i;
-
-// 	i = 0;
-// 	list_mod = (char **)malloc(sizeof(char *) * argc);
-// 	while (list_origin[i + 1])
-// 	{
-// 		list_mod[i] = ft_strdup(list_origin[i + 1]);
-// 		i++;
-// 	}
-// 	return (list_mod);
-// }

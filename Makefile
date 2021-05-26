@@ -6,7 +6,7 @@
 #    By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 12:16:14 by mvaldes           #+#    #+#              #
-#    Updated: 2021/05/25 15:13:19 by mvaldes          ###   ########.fr        #
+#    Updated: 2021/05/26 10:33:41 by mvaldes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ NAME= push_swap
 SRCS =	push_swap.c \
 		check_n_parse.c \
 		utils.c \
-		sort_prms.c
+		utils_1.c \
+		sort_prms.c \
+		operations.c \
+		print_output.c
 
 OBJS = $(SRCS:.c=.o)
 CC = @gcc

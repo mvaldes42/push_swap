@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/25 17:16:09 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/26 10:53:50 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,25 @@ typedef struct s_memory
 	float	avrg;
 	int		mid;
 	int		pivot;
+	int		ope_a_worked;
+	int		ope_b_worked;
 }	t_memory;
 
 void	exit_fail(void);
-char	isnum(char *c);
+int		isnum(char *c);
 int		ft_abs (int i);
 int		word_count(const char *s, char c);
-void	print_piles(t_memory *mem);
+void	print_piles(int *pile_a, int *pile_b);
+int		size_of_array(int *pile);
+float	find_average(int *list, int longueur);
+int		find_cls_to_avrg(int *list, float average);
+
+int		reverse_rotate(int *pile);
+int		rotate(int *pile);
+int		push(int *pile_from, int *pile_to);
+int		swap(int *pile);
+
+void	print_output(t_memory *mem, char *operation);
 
 void	check_n_parse(t_memory *mem, char **list_origin, int argc);
 void	sort_prms(t_memory *mem);
