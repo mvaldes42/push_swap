@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:03:27 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 15:58:10 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/27 15:33:21 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ void	print_piles(int *pile_a, int *pile_b)
 		if (pile_a[i])
 			printf("[%3d]", pile_a[i]);
 		else
-			printf("[...]");
+			printf("[   ]");
 		if (pile_b[i])
 			printf("[%3d]\n", pile_b[i]);
 		else
-			printf("[...]\n");
+			printf("[   ]\n");
 		i++;
 	}
 	printf("\n");

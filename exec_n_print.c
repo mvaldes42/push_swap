@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:33:44 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 15:46:41 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/27 16:02:05 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ static int	exec_n_print_swap(int *pile_a, int *pile_b, char c)
 static int	exec_n_print_push(int *pile_a, int *pile_b, char c)
 {
 	if (c == LIST_A && push(pile_a, pile_b))
-		printf(PUSH_A);
-	else if (push(pile_b, pile_a))
 		printf(PUSH_B);
+	else if (push(pile_b, pile_a))
+		printf(PUSH_A);
 	return (1);
 }
 

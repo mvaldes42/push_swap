@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:35:08 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/25 17:03:54 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/27 15:48:47 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ static char	*concatenate_args(t_memory *mem, char **list_origin)
 			concatenated[k++] = list_origin[i][j];
 		concatenated[k++] = ' ';
 	}
-	printf("params with spaces : %d\n", mem->size_spc);
-	printf("conca : %s\n", concatenated);
+	// printf("params with spaces : %d\n", mem->size_spc);
+	// printf("conca : %s\n", concatenated);
 	return (concatenated);
 }
 
@@ -73,8 +73,9 @@ void	check_n_parse(t_memory *mem, char **list_origin, int argc)
 
 	mem->prms = concatenate_args(mem, list_origin);
 	mem->nb_prms = word_count(mem->prms, ' ');
-	printf("wcont : %d\n", mem->nb_prms);
-	mem->pile_a = (int *)malloc(sizeof(int) * mem->nb_prms);
+	// printf("wcont : %d\n", mem->nb_prms);
+	mem->pile_a = (int *)malloc(sizeof(int) * (mem->nb_prms + 1));
+	ft_memset(mem->pile_a, '\0', sizeof(int) * (mem->nb_prms + 1));
 	mem->prms_mod = ft_split(mem->prms, ' ');
 	i = 0;
 	while (mem->prms_mod[i])
