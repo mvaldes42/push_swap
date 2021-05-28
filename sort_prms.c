@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/28 16:26:15 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/28 18:26:43 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,133 +48,24 @@ int	pile_is_descending(int *pile)
 void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
 {
 	int	pile_a_len;
-	int	pile_b_len;
+	int	pile_a_len_origin;
 	int	pile_a_ascending;
-	int	pile_b_ascending;
 
-	mem->pivot = mem->mid;
 	pile_a_len = size_of_array(pile_a);
+	pile_a_len_origin = pile_a_len;
 	pile_a_ascending = pile_is_ascending(pile_a);
-	pile_b_len = size_of_array(pile_b);
-	while (!pile_a_ascending)
+	while (!pile_a_ascending && pile_a_len == pile_a_len_origin)//TANT QUE NOUS N'AVONS PAS TRIE A ET QUE A NE FAIT PAS SA TAILLE DE BASE !!
 	{
-		pile_a_len = size_of_array(pile_a) - 1;
-		pile_b_len = size_of_array(pile_b);
 		pile_a_ascending = pile_is_ascending(pile_a);
-		// printf("ascending: %d\n", pile_a_ascending);
-		if (pile_a[0] < mem->pivot)//SI LE HAUT DE LA PILE A EST INF AU PIVOT
-		{
-			printf("pile_a[0] < mem->pivot\n");
-			if (pile_a[0] > pile_b[0])// SI LE HAUT DE LA PILE A > HAUT DE LA PILE B
-				F_PUSH_B// ALORS IL PASSE SUR LE PILE B
-			else
-			{
-				// printf("hello\n");
-				F_PUSH_A
-				F_SWAP_A
-				F_PUSH_B
-			}
-		}
-		//
-		else if (pile_a[0] == mem->pivot && pile_a[1] < mem->pivot)// SI LE HAUT DE LA PILE A = PIVOT ET QUE LE 2EME DE A < PIVOT
-		{
-			printf("pile_a[0] == mem->pivot && pile_a[1] < mem->pivot\n");
-			F_SWAP_A
-		}
-		//
-		// else if (pile_a[0] > mem->pivot && pile_a[1] == mem->pivot && pile_a[pile_a_len] < mem->pivot// SI LE HAUT DE LA PILE A > PIVOT ET QUE LE DEUXIEME DE A
-		// && pile_a[pile_a_len] != mem->pivot)////////////////////////////////////////////////////////// EST LE PIVOT ????????
-		// {
-		// 	F_REVERSE_ROTATE_A
-		// 	if (pile_a[0] > pile_b[0] && pile_a[0] > mem->pivot)
-		// 		F_PUSH_B
-		// 	else
-		// 	{
-		// 		// printf("hello\n");
-		// 		F_PUSH_A
-		// 		F_SWAP_A
-		// 		if (pile_a[0] > pile_b[0] && pile_a[0] > mem->pivot)
-		// 			F_PUSH_B
-		// 	}
-		// }
-		else if (pile_a[0] > mem->pivot && pile_a_len < 2)// SI LE HAUT DE LA PILE A > AU PIVOT ET QUE A N'A QUE 2 ELEM
-			F_SWAP_A
-		else if (pile_a_len == mem->nb_prms / 2)// WHEN IT'S TIME TO ORDER A
-		{
-			//MAKE REST OF THE PILE IN ASCENDING ORDER BUT THIS TIME WITH VALUES > PIVOT
-			printf("pile separated\n");
-			// mem->pivot = find_largest_nbr(pile_a);
-			mem->pivot = 73;
-			// exit(EXIT_SUCCESS);
-		}
-		else if (pile_a[0] > mem->pivot)// SI LE HAUT DE LA PILE A > PIVOT ET QUE LE DEUX < PREMIER (&& pile_a[1] < pile_a[0])
-		{
-			printf("pile_a[0] > mem->pivot\n");
-			F_SWAP_A
-			if (pile_a[0] < mem->pivot)
-			{
-				F_PUSH_B
-			}
-			else
-			{
-				printf("!! pile_a[0] > mem->pivot\n");
-				F_ROTATE_A
-			}
-		}
-		// if (pile_b[0] < pile_b[1])
-		// {
-		// 	F_ROTATE_B
-		// }
-	}
-	printf("A triée\n");
-	// //////////
-	// pile_b_ascending = pile_is_ascending(pile_b);
-	// while (!pile_b_ascending)
-	// {
-	// 	pile_b_len = size_of_array(pile_b) - 1;
-	// 	pile_b_ascending = pile_is_ascending(pile_b);
-	// 	printf("ascending: %d\n", pile_a_ascending);
-	// 	if (pile_b[0] < mem->pivot)
-	// 	{
-	// 		if (pile_a[0] > pile_b[0])
-	// 			F_PUSH_B
-	// 		else
-	// 		{
-	// 			printf("hello\n");
-	// 			F_PUSH_A
-	// 			F_SWAP_A
-	// 			F_PUSH_B
-	// 		}
-	// 	}
-	// 	else if (pile_a[0] == mem->pivot && pile_a[1] < mem->pivot)
-	// 	{
-	// 		F_SWAP_A
-	// 	}
-	// 	else if (pile_a[0] > mem->pivot && pile_a[1] == mem->pivot && pile_a[pile_a_len] < mem->pivot
-	// 	&& pile_a[pile_a_len] != mem->pivot)
-	// 	{
-	// 		F_REVERSE_ROTATE_A
-	// 		if (pile_a[0] > pile_b[0])
-	// 			F_PUSH_B
-	// 		else
-	// 		{
-	// 			printf("hello\n");
-	// 			F_PUSH_A
-	// 			F_SWAP_A
-	// 			F_PUSH_B
-	// 		}
-	// 	}
-	// 	else if (pile_a[0] > mem->pivot && pile_a_len < 2)
-	// 		F_SWAP_A
-	// 	if (pile_b[0] < pile_b[1])
-	// 	{
-	// 		F_ROTATE_B
-	// 	}
-	// }
-	// ///////
-	while (pile_b[0] != pile_b[1])
-	{
-		F_PUSH_A
+		pile_a_len = size_of_array(pile_a);
+		// 1) PRENDRE LE 1ER PIVOT
+		// 2) TOUS LES ELEMENTS <= PIVOT VONT EN B EN UTILISANT ALGO DE SELECTION
+		// THEORIQUEMENT ? LE PIVOT DOIT ETRE EN B[0]
+		// 3) REPETER POUR TOUS LES PIVOTS JUSQU'A L'AVANT DERNIER
+		// => if (pivot == 4ème pivot)
+		// 4) ON TRIE ALORS A EN UTILISANT ALGO
+		// 5) ON RECUPERE LES ELEMENTS UNS A UNS DE B SUR A EN ORDRE AVEC L'ALGO
+		exit(EXIT_SUCCESS);
 	}
 }
 
