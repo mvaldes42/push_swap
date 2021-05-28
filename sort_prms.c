@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/28 16:11:57 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/28 16:26:15 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 int	pile_is_ascending(int *pile)
 {
-	int	ascending;
 	int	i;
 
-	ascending = 0;
 	i = 0;
 	while (pile[i] && pile[i + 1])
 	{
 		if (pile[i] < pile[i + 1])
-			ascending = 1;
+			i++;
 		else
-			ascending = 0;
-		i++;
+			return (0);
 	}
-	return (ascending);
+	return (1);
 }
 
 int	pile_is_descending(int *pile)
@@ -106,7 +103,9 @@ void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
 		{
 			//MAKE REST OF THE PILE IN ASCENDING ORDER BUT THIS TIME WITH VALUES > PIVOT
 			printf("pile separated\n");
-			mem->pivot = pile_a[0];
+			// mem->pivot = find_largest_nbr(pile_a);
+			mem->pivot = 73;
+			// exit(EXIT_SUCCESS);
 		}
 		else if (pile_a[0] > mem->pivot)// SI LE HAUT DE LA PILE A > PIVOT ET QUE LE DEUX < PREMIER (&& pile_a[1] < pile_a[0])
 		{
@@ -119,9 +118,7 @@ void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
 			else
 			{
 				printf("!! pile_a[0] > mem->pivot\n");
-				F_PUSH_B
-				F_SWAP_A
-				F_PUSH_A
+				F_ROTATE_A
 			}
 		}
 		// if (pile_b[0] < pile_b[1])
@@ -129,8 +126,8 @@ void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
 		// 	F_ROTATE_B
 		// }
 	}
+	printf("A triée\n");
 	// //////////
-	pile_b_len = size_of_array(pile_b);
 	// pile_b_ascending = pile_is_ascending(pile_b);
 	// while (!pile_b_ascending)
 	// {
