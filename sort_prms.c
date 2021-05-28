@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/28 19:25:22 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/28 19:39:18 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,22 @@ int	*stealth_sort(int *pile, long size)
 
 void	faster_move_array_a(t_memory *mem, int *pile_a, int index, int pile_len)
 {
+	printf("<=== pile_a[0] = %d, pile_len / 2= %d && index: %d\n", pile_a[0], pile_len / 2, index);
 	if (index < 2)
 		F_SWAP_A
-	if (index > pile_len / 2)
-		F_ROTATE_A
-	else
+	else if (index > pile_len / 2)
 		F_REVERSE_ROTATE_A
+	else if (index <= pile_len / 2)
+		F_ROTATE_A
 }
 
 int	find_my_index(int *list, long num)
 {
 	int	i;
 
-	i = -1;
-	while (list[++i] != num)
-		;
+	i = 0;
+	while (list[i] != num)
+		i++;
 	return (i);
 }
 //  THE ALGO TO CHOOSE WHAT IS FASTER TO MOVE ITEM INDEX TO POS [0]
@@ -100,14 +101,8 @@ void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
 	while (pile_a[0] != 9)
 	{
 		int pivot = find_my_index(pile_a, 9);
-		printf("pivot: %d\n", pivot);
 		pile_a_len = size_of_array(pile_a);
-		if (pivot < 2)
-			F_SWAP_A
-		else if (pivot >= pile_a_len / 2)
-			F_ROTATE_A
-		else
-		F_REVERSE_ROTATE_A
+		faster_move_array_a(mem, pile_a, pivot, pile_a_len);
 	}
 	// print_piles(pile_a, pile_a_sorted);
 	// pile_a_len_origin = pile_a_len;
