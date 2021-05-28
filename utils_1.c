@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:16:56 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 16:19:50 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/28 10:31:30 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,17 @@ int	find_cls_to_avrg(int *list, float average)
 	diff = 0;
 	diff_small = 0;
 	mid = 0;
-	diff_small = ft_abs((list[0] / average));
+	diff_small = ft_abs((list[0] - average));
 	while (list[i])
 	{
-		diff = ft_abs((list[i] / average));
-		if (ft_abs(diff - 1) < ft_abs(diff_small - 1))
+		diff = ft_abs((list[i] - average));
+		if (diff < diff_small)
+		{
+			diff_small = diff;
 			mid = list[i];
+			printf("change... mid: %d & list[i]: %d\n", mid, list[i]);
+		}
+		printf("list[%d]: %d, average: %f, diff: %f, diff_small: %f, diff < diff_small %d, mid : %d\n", i, list[i], average, diff, diff_small, diff < diff_small, mid);
 		i++;
 	}
 	return (mid);

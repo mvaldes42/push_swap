@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 16:01:16 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/28 10:45:02 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@
 # define F_SWAP_B exec_n_print(mem, SWAP, LIST_B);
 # define F_SWAP_ALL exec_n_print(mem, SWAP, BOTH_LST);
 
-# define F_PUSH_A exec_n_print(mem, PUSH, LIST_A);
-# define F_PUSH_B exec_n_print(mem, PUSH, LIST_B);
+# define F_PUSH_A exec_n_print(mem, PUSH, LIST_B);
+# define F_PUSH_B exec_n_print(mem, PUSH, LIST_A);
 
 # define F_ROTATE_A exec_n_print(mem, ROTATE, LIST_A);
 # define F_ROTATE_B exec_n_print(mem, ROTATE, LIST_B);
