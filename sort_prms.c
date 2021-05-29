@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/28 19:39:18 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/29 22:01:20 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,16 @@ int	*stealth_sort(int *pile, long size)
 	return (pile_sorted);
 }
 
-void	faster_move_array_a(t_memory *mem, int *pile_a, int index, int pile_len)
+//  THE ALGO TO CHOOSE WHAT IS FASTER TO MOVE ITEM INDEX TO POS [0]
+void	faster_move_array_a(t_memory *mem, int index, int pile_len, char lst_name)
 {
-	printf("<=== pile_a[0] = %d, pile_len / 2= %d && index: %d\n", pile_a[0], pile_len / 2, index);
+	printf("index : %d, value: %d, (pile_len) = %d\n", index, mem->pile_a[index], (pile_len));
 	if (index < 2)
-		F_SWAP_A
-	else if (index > pile_len / 2)
-		F_REVERSE_ROTATE_A
-	else if (index <= pile_len / 2)
-		F_ROTATE_A
+		exec_n_print(mem, SWAP, lst_name);
+	else if (index > (pile_len / 2))
+		exec_n_print(mem, REVERSE_ROTATE, lst_name);
+	else if (index <= (pile_len / 2))
+		exec_n_print(mem, ROTATE, lst_name);
 }
 
 int	find_my_index(int *list, long num)
@@ -84,25 +85,116 @@ int	find_my_index(int *list, long num)
 		i++;
 	return (i);
 }
-//  THE ALGO TO CHOOSE WHAT IS FASTER TO MOVE ITEM INDEX TO POS [0]
+
+int	*intdup(int *src)
+{
+	int 	*p;
+	long	len;
+
+	len = size_of_array(src) + 1;
+	p = (int*)malloc(len * sizeof(int));
+	memcpy(p, src, len * sizeof(int));
+	return p;
+}
+int	find_smallest_nb(int *array)
+{
+	int	smallest;
+	int	i;
+
+	smallest = array[0];
+	i = 0;
+	while (array[i])
+	{
+		if (array[i] < smallest)
+			smallest = array[i];
+		i++;
+	}
+	return (smallest);
+}
+
 void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
 {
 	int	pile_a_len;
 	int	pile_a_len_origin;
 	int	pile_a_ascending;
 	int	*pile_a_sorted;
+	int	i;
 
-	(void)mem;
-	(void)pile_b;
 	// USE A STEALTH SORT TO BE ABLE TO PICK PIVOT CORRECTLY
 	// CREATE THE ALGO TO CHOOSE WHAT IS FASTER TO MOVE ITEM INDEX TO POS [0]
 	pile_a_len = size_of_array(pile_a);
 	pile_a_sorted = stealth_sort(pile_a, pile_a_len);
-	while (pile_a[0] != 9)
+	print_piles(pile_a, pile_a_sorted);
+	int j = 1;
+	pile_a_ascending = is_pile_ascend(pile_a);
+	// WHILE PIVOT 1 = PILE lEN / 4 OU 8), MOVE ALL < PIVOT TO B
+	while (!pile_a_ascending)
 	{
-		int pivot = find_my_index(pile_a, 9);
+		printf("hello\n");
+		while (j < 5)
+		{
+			i = 0;
+			pile_a_len = size_of_array(pile_a);
+			int pivot_index =  ((mem->nb_prms / 5)) * j;
+			int pivot_value = pile_a_sorted[pivot_index];
+			int count = 0;
+			printf("pivot_index= %d, pivot_value= %d\n", pivot_index, pivot_value);
+			printf("mem->nb_prms: %d\n", mem->nb_prms);
+			printf("(mem->nb_prms / 4)) = %d\n", (mem->nb_prms / 4));
+			while (count <= (mem->nb_prms / 5) && pile_a[i])
+			{
+				printf("pile_a[%d]= %d\n", i, pile_a[i]);
+				pile_a_len = size_of_array(pile_a);
+				int current_value = pile_a[i];
+				if ( pile_a[i] <= pivot_value) //<= pivot_value)
+				{
+					printf("nb inf à pivot\n");
+					while (pile_a[0] != current_value)//pile_a[i])
+					{
+						faster_move_array_a(mem, find_my_index(pile_a, current_value), pile_a_len, LIST_A);
+						// exit(EXIT_SUCCESS);
+					}
+					F_PUSH_B
+					count++;
+					printf("count = %d\n", count);
+					i = 0;
+					// exit(EXIT_SUCCESS);
+				}
+				else
+					i++;
+			}
+			j++;
+		}
+		// WE'VE PUSHED 3/4 OF ALL THE LIST INTO B, ALMOST SORTED INTO BUCKETS
+		// NOW, WE'RE SORTING A PROPERLY
+		printf("\n NOW SORTING A\n");
+		i = 0;
+		pile_a_ascending = is_pile_ascend(pile_a);
+		int *pile_a_as_now = intdup(pile_a);
+		int nb_pushed = 0;
 		pile_a_len = size_of_array(pile_a);
-		faster_move_array_a(mem, pile_a, pivot, pile_a_len);
+		while (!pile_a_ascending && pile_a_len != 1)
+		{
+			int smallest_nb = find_smallest_nb(pile_a);
+			pile_a_len = size_of_array(pile_a);
+			printf("smallest: %d\n", smallest_nb);
+			faster_move_array_a(mem, find_my_index(pile_a, smallest_nb), pile_a_len, LIST_A);
+			if (pile_a[0] == smallest_nb && pile_a_len != 1)
+			{
+				F_PUSH_B
+				nb_pushed++;
+			}
+			i++;
+		}
+		printf("nb_pushed: %d\n", nb_pushed);
+		while (nb_pushed > 0)
+		{
+			F_PUSH_A
+			printf("nb_pushed: %d\n", nb_pushed);
+			nb_pushed--;
+		}
+		// pile_a_ascending = is_pile_ascend(pile_a);
+		exit(EXIT_SUCCESS);
 	}
 	// print_piles(pile_a, pile_a_sorted);
 	// pile_a_len_origin = pile_a_len;
