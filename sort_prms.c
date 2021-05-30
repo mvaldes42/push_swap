@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/30 09:57:59 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/30 10:24:11 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,19 +205,21 @@ void	sort_large_nbr_second(t_memory *mem, int *pile_a, int *pile_b)
 
 void	sort_large_nbr_third(t_memory *mem, int *pile_a, int *pile_b)
 {
-	int	count;
-	int	j;
+	int	*pile_nested_sorted;
+	int	i;
+	int	current_value;
 
-	j = 1;
-	while (pile_b)
+	pile_nested_sorted = stealth_sort(pile_b, size_of_array(pile_b));
+	print_piles(pile_b, pile_nested_sorted);
+	i = size_of_array(pile_b) - 1;
+	while(pile_b[i])
 	{
-		count = 0;
-		while (count <= (mem->nb_prms / 4) )
-		{
-			count ++;
-		}
+		current_value = pile_nested_sorted[i];
+		while (pile_b[0] != current_value)
+			faster_move_array_a(mem, find_my_index(pile_b, current_value), size_of_array(pile_b), LIST_B);
+		F_PUSH_A
+		i--;
 	}
-
 }
 
 void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
@@ -233,7 +235,7 @@ void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
 	printf("\n //// NOW SORTING A ////\n");
 	sort_large_nbr_second(mem, pile_a, pile_b);
 	printf("\n //// NOW PUSHING B TO A ////\n");
-	// sort_large_nbr_third(mem, pile_a, pile_b);
+	sort_large_nbr_third(mem, pile_a, pile_b);
 }
 
 void	sort_prms(t_memory *mem)
