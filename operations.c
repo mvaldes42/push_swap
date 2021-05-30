@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:14:17 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/26 10:36:24 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/30 22:19:47 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	reverse_rotate(int *pile)
 
 	if (pile[0] && pile[1] && (pile[0] != pile[1]))
 	{
-		lenght = size_of_array(pile);
+		lenght = array_len(pile);
 		i = lenght - 1;
 		last = pile[i];
 		while (i > 0)
@@ -42,7 +42,7 @@ int	rotate(int *pile)
 
 	if (pile[0] && pile[1] && (pile[0] != pile[1]))
 	{
-		lenght = size_of_array(pile);
+		lenght = array_len(pile);
 		last = pile[0];
 		i = 0;
 		while (i <= lenght - 2)
@@ -66,12 +66,12 @@ int	push(int *pile_from, int *pile_to)
 	{
 		i = -1;
 		first_from = pile_from[0];
-		lenght_from = size_of_array(pile_from);
+		lenght_from = array_len(pile_from);
 		pile_from[0] = pile_from[1];
 		while (++i < lenght_from)
 			pile_from[i] = pile_from[i + 1];
 		pile_from[lenght_from] = '\0';
-		i = size_of_array(pile_to) + 1;
+		i = array_len(pile_to) + 1;
 		while (--i > 0)
 			pile_to[i] = pile_to[i - 1];
 		pile_to[0] = first_from;

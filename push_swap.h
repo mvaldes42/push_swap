@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/30 10:26:43 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/30 22:18:25 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define REVERSE_ROTATE_ALL "rrr\n"
 
 /// TO DELETE BEFORE FINISHING : ONLY EASIER TO CODE
-# define __F_PRINT_LST__ print_piles(mem->pile_a, mem->pile_b);
+# define __F_PRINT_LST__ print_piles(mem->pile_a, mem->pile_b)
 
 # define F_SWAP_A exec_n_print(mem, SWAP, LIST_A);
 # define F_SWAP_B exec_n_print(mem, SWAP, LIST_B);
@@ -73,6 +73,7 @@ typedef struct s_memory
 	int		mid;
 	int		pivot;
 	int		ope_count;
+	int		degree;
 }	t_memory;
 
 void	exit_fail(void);
@@ -80,9 +81,17 @@ int		isnum(char *c);
 float	ft_abs (float i);
 int		word_count(const char *s, char c);
 void	print_piles(int *pile_a, int *pile_b);
-int		size_of_array(int *pile);
+
+void	ft_swap(int *xp, int *yp);
+int		find_idx(int *list, long num);
+int		array_len(int *pile);
 float	find_average(int *list, int longueur);
 int		find_cls_to_avrg(int *list, float average);
+
+int		is_pile_ascend(int *pile);
+int		*stealth_sort(int *pile, long size);
+int		*int_array_dup(int *src);
+int		find_smallest_nb(int *array);
 
 int		swap(int *pile);
 int		push(int *pile_from, int *pile_to);
@@ -92,6 +101,14 @@ int		reverse_rotate(int *pile);
 void	exec_n_print(t_memory *mem, char *op, char pile);
 
 void	check_n_parse(t_memory *mem, char **list_origin, int argc);
+
+void	sort_buckets(t_memory *mem, int *pile_a, int *pile_b, int *pile_a_sort);
+void	sort_lst_a(t_memory *mem, int *pile_a, int *pile_b);
+void	push_back_to_a(t_memory *mem, int *pile_a, int *pile_b);
+
+void	find_ope(t_memory *mem, int index, int pile_len, char lst_name);
+void	sort_three_ascend(t_memory *mem, int *pile, char lst_name);
+void	sort_three_descend(t_memory *mem, int *pile, char lst_name);
 void	sort_prms(t_memory *mem);
 
 #endif

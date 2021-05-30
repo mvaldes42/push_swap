@@ -6,13 +6,32 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:16:56 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/28 10:31:30 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/30 22:10:12 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	size_of_array(int *pile)
+void	ft_swap(int *xp, int *yp)
+{
+	int	temp;
+
+	temp = *xp;
+	*xp = *yp;
+	*yp = temp;
+}
+
+int	find_idx(int *list, long num)
+{
+	int	i;
+
+	i = 0;
+	while (list[i] != num)
+		i++;
+	return (i);
+}
+
+int	array_len(int *pile)
 {
 	int	i;
 
