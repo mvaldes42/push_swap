@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/30 15:48:34 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/30 18:41:34 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	*stealth_sort(int *pile, long size)
 //  THE ALGO TO CHOOSE WHAT IS FASTER TO MOVE ITEM INDEX TO POS [0]
 void	faster_move_array_a(t_memory *mem, int index, int pile_len, char lst_name)
 {
-	// printf("index : %d, value: %d, (pile_len) = %d\n", index, mem->pile_a[index], (pile_len));
+	printf("index : %d, value: %d, (pile_len) = %d\n", index, mem->pile_a[index], (pile_len));
 	if (index < 2)
 		exec_n_print(mem, SWAP, lst_name);
 	else if (index > (pile_len / 2))
@@ -174,28 +174,27 @@ void	sort_large_nbr_first(t_memory *mem, int *pile_a, int *pile_b, int *pile_a_s
 	int current_value;
 
 	j = 1;
-	while (j < 4 || size_of_array(pile_a) > 3)
+	while (j < 6)
 	{
 		i = 0;
 		count = 0;
-		// printf("pivot_index= ((mem->nb_prms(%d) / 4) * j) - 1: %d, pivot_value= %d\n", mem->nb_prms,((mem->nb_prms / 4) * j) - 1, pile_a_sorted[((mem->nb_prms / 4) * j) - 1]);
-		// printf("mem->nb_prms: %d\n", mem->nb_prms);
-		// printf("(mem->nb_prms / 4)) = %d\n", (mem->nb_prms / 4));
-		while (count <= mem->nb_prms / 4  && pile_a[i])
+		printf("pivot_index= ((mem->nb_prms(%d) / 4) * j) - 1: %d, pivot_value= %d\n", mem->nb_prms,((mem->nb_prms / 4) * j) - 1, pile_a_sorted[((mem->nb_prms / 4) * j) - 1]);
+		printf("count : %d\n", count);
+		printf("(mem->nb_prms / 4)) = %d\n", (mem->nb_prms / 4));
+		while (count <= mem->nb_prms / 6  && pile_a[i])
 		{
-			// printf("pile_a[%d]= %d && count: %d && max: %d && mem->nb_prms%d\n", i, pile_a[i], count, mem->nb_prms / 4, mem->nb_prms);
+			printf("pile_a[%d]= %d && count: %d && max: %d && mem->nb_prms%d\n", i, pile_a[i], count, mem->nb_prms / 4, mem->nb_prms);
 			current_value = pile_a[i];
 			if (size_of_array(pile_a) == 3)
 				count += 3;
-			else if ( pile_a[i] <= pile_a_sorted[((mem->nb_prms / 4) * j) - 1]) //<= pivot_value)
+			else if ( pile_a[i] <= pile_a_sorted[((mem->nb_prms / 6) * j) - 1]) //<= pivot_value)
 			{
-				// printf("nb inf à pivot\n");
-				while (pile_a[0] != current_value)//pile_a[i])
+				printf("nb inf à pivot\n");
+				while (pile_a[0] != current_value && j < 6)//pile_a[i])
 					faster_move_array_a(mem, find_my_index(pile_a, current_value), size_of_array(pile_a), LIST_A);
-				F_PUSH_B
+					F_PUSH_B
 				count++;
 				i = 0;
-				printf("count : %d\n", count);
 			}
 			else
 				i++;
@@ -286,21 +285,3 @@ void	sort_prms(t_memory *mem)
 	__F_PRINT_LST__
 	sort_prms_cmds(mem, mem->pile_a, mem->pile_b);
 }
-
-// int	pile_is_descending(int *pile)
-// {
-// 	int	descending;
-// 	int	i;
-
-// 	descending = 0;
-// 	i = size_of_array(pile);
-// 	while (i > 0)
-// 	{
-// 		if (pile[i] < pile[i - 1])
-// 			descending = 1;
-// 		else
-// 			descending = 0;
-// 		i--;
-// 	}
-// 	return (descending);
-// }
