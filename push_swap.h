@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/29 18:38:40 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/30 10:26:43 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct s_memory
 	float	avrg;
 	int		mid;
 	int		pivot;
+	int		ope_count;
 }	t_memory;
 
 void	exit_fail(void);
