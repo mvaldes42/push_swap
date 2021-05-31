@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:49:48 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 15:34:46 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 17:53:24 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	*stealth_sort(int *pile, long size)
 
 	i = -1;
 	pile_sorted = (int *)malloc(sizeof(int) * (size + 1));
+	ft_bzero(pile_sorted, sizeof(int) * (size + 1));
 	while (++i < size)
 		pile_sorted[i] = pile[i];
 	i = 0;

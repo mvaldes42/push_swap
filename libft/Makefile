@@ -6,7 +6,7 @@
 #    By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/12 11:18:52 by mvaldes           #+#    #+#              #
-#    Updated: 2020/08/11 11:13:48 by mvaldes          ###   ########.fr        #
+#    Updated: 2021/05/31 17:48:57 by mvaldes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ NAME	= libft.a
 RM	= rm -f
 
 .c.o: $(SRCS)
-	gcc -Wall -Wextra -Werror -c $^ -o ${^:.c=.o}
+	gcc -Wall -Wextra -Werror -fsanitize=address -g -c $^ -o ${^:.c=.o}
 
 $(NAME):    $(OBJS) libft.h
 	ar rcs $(NAME) $(OBJS)

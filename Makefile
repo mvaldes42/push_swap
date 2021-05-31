@@ -6,7 +6,7 @@
 #    By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 12:16:14 by mvaldes           #+#    #+#              #
-#    Updated: 2021/05/31 17:18:08 by mvaldes          ###   ########.fr        #
+#    Updated: 2021/05/31 17:49:01 by mvaldes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS =	push_swap.c \
 OBJS = $(SRCS:.c=.o)
 CC = @gcc
 RM = @/bin/rm -f
-CC_FLAGS = -Wall -Wextra -Werror -I.
+CC_FLAGS = -Wall -Wextra -Werror -fsanitize=address -g -I.
 LIBFT = libft/libft.a
 
 all:		$(NAME)

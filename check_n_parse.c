@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:35:08 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 17:22:43 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 17:52:28 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ static char	*concatenate_args(t_memory *mem, char **list_origin)
 
 	i = 1;
 	count_size_prms(mem, list_origin);
-	concatenated = (char *)malloc(sizeof(char *) * mem->size_spc);
+	concatenated = (char *)malloc(sizeof(char *) * (mem->size_spc + 1));
+	ft_bzero(concatenated, sizeof(char *) * (mem->size_spc + 1));
 	i = 0;
 	k = 0;
 	while (list_origin[++i])
