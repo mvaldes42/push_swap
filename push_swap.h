@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/30 22:18:25 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 14:59:10 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define REVERSE_ROTATE_ALL "rrr\n"
 
 /// TO DELETE BEFORE FINISHING : ONLY EASIER TO CODE
-# define __F_PRINT_LST__ print_piles(mem->pile_a, mem->pile_b)
+# define __F_PRINT_LST__ print_piles(mem->pile_a, mem->pile_b, mem->pile_a_len, mem->pile_b_len);
 
 # define F_SWAP_A exec_n_print(mem, SWAP, LIST_A);
 # define F_SWAP_B exec_n_print(mem, SWAP, LIST_B);
@@ -69,6 +69,8 @@ typedef struct s_memory
 	char	**prms_mod;
 	int		*pile_a;
 	int		*pile_b;
+	int		pile_a_len;
+	int		pile_b_len;
 	float	avrg;
 	int		mid;
 	int		pivot;
@@ -80,23 +82,23 @@ void	exit_fail(void);
 int		isnum(char *c);
 float	ft_abs (float i);
 int		word_count(const char *s, char c);
-void	print_piles(int *pile_a, int *pile_b);
+void	print_piles(int *pile_a, int *pile_b, int a_len, int b_len);
 
 void	ft_swap(int *xp, int *yp);
 int		find_idx(int *list, long num);
-int		array_len(int *pile);
+// int		array_len(int *pile);
 float	find_average(int *list, int longueur);
-int		find_cls_to_avrg(int *list, float average);
+// int		find_cls_to_avrg(int *list, float average);
 
-int		is_pile_ascend(int *pile);
+int		is_pile_ascend(int *pile, int len);
 int		*stealth_sort(int *pile, long size);
-int		*int_array_dup(int *src);
-int		find_smallest_nb(int *array);
+int		*int_array_dup(int *src, int array_len);
+int		find_smallest_nb(int *array, int len);
 
-int		swap(int *pile);
-int		push(int *pile_from, int *pile_to);
-int		rotate(int *pile);
-int		reverse_rotate(int *pile);
+int		swap(int *pile, int len);
+int		push(int *pile_from, int *pile_to, int len_from, int len_to);
+int		rotate(int *pile, int pile_len);
+int		reverse_rotate(int *pile, int pile_len);
 
 void	exec_n_print(t_memory *mem, char *op, char pile);
 

@@ -6,18 +6,18 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:49:48 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/30 22:01:21 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 14:41:39 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_pile_ascend(int *pile)
+int	is_pile_ascend(int *pile, int len)
 {
 	int	i;
 
 	i = 0;
-	while (pile[i] && pile[i + 1])
+	while (i < len && i + 1 < len)
 	{
 		if (pile[i] > pile[i + 1])
 			return (0);
@@ -54,25 +54,25 @@ int	*stealth_sort(int *pile, long size)
 	return (pile_sorted);
 }
 
-int	*int_array_dup(int *src)
+int	*int_array_dup(int *src, int array_len)
 {
-	int		*p;
-	long	len;
+	int	*p;
+	int	len;
 
-	len = array_len(src) + 1;
+	len = array_len + 1;
 	p = (int *)malloc(len * sizeof(int));
 	ft_memcpy(p, src, len * sizeof(int));
 	return (p);
 }
 
-int	find_smallest_nb(int *array)
+int	find_smallest_nb(int *array, int len)
 {
 	int	smallest;
 	int	i;
 
 	smallest = array[0];
 	i = 0;
-	while (array[i])
+	while (i < len)
 	{
 		if (array[i] < smallest)
 			smallest = array[i];

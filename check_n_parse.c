@@ -6,19 +6,22 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:35:08 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/27 15:48:47 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 14:40:18 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	isunique(int num, int *pile_a)
+static int	isunique(int num, int *pile_a, int len)
 {
-	while (*pile_a)
+	int i;
+
+	i = 0;
+	while (i < len)
 	{
-		if (*pile_a == num)
+		if (pile_a[i] == num)
 			exit_fail();
-		pile_a++;
+		i++;
 	}
 	return (1);
 }
@@ -61,8 +64,8 @@ static char	*concatenate_args(t_memory *mem, char **list_origin)
 			concatenated[k++] = list_origin[i][j];
 		concatenated[k++] = ' ';
 	}
-	// printf("params with spaces : %d\n", mem->size_spc);
-	// printf("conca : %s\n", concatenated);
+	printf("params with spaces : %d\n", mem->size_spc);
+	printf("conca : %s\n", concatenated);
 	return (concatenated);
 }
 
@@ -73,7 +76,7 @@ void	check_n_parse(t_memory *mem, char **list_origin, int argc)
 
 	mem->prms = concatenate_args(mem, list_origin);
 	mem->nb_prms = word_count(mem->prms, ' ');
-	// printf("wcont : %d\n", mem->nb_prms);
+	printf("wcont : %d\n", mem->nb_prms);
 	mem->pile_a = (int *)malloc(sizeof(int) * (mem->nb_prms + 1));
 	ft_memset(mem->pile_a, '\0', sizeof(int) * (mem->nb_prms + 1));
 	mem->prms_mod = ft_split(mem->prms, ' ');
@@ -85,9 +88,10 @@ void	check_n_parse(t_memory *mem, char **list_origin, int argc)
 		else
 			exit_fail();
 		if (!(num <= INT_MAX && num >= INT_MIN) || \
-		(i > 0 && (!isunique(num, mem->pile_a))))
+		(i > 0 && (!isunique(num, mem->pile_a, mem->pile_a_len))))
 			exit_fail();
 		mem->pile_a[i] = num;
+		mem->pile_a_len++;
 		i++;
 	}
 }
