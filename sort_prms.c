@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 15:24:33 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 15:26:35 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,5 @@ void	sort_prms(t_memory *mem)
 {
 	mem->pile_b = (int *)malloc(sizeof(int) * (mem->nb_prms + 1));
 	ft_memset(mem->pile_b, 0, sizeof(int) * (mem->nb_prms + 1));
-	// mem->avrg = find_average(mem->pile_a, mem->nb_prms);
-	// mem->mid = find_cls_to_avrg(mem->pile_a, mem->avrg);
-	// printf("mem->avrg : %f\n", mem->avrg);
-	// printf("mem->mid : %d\n", mem->mid);
 	sort_prms_cmds(mem, mem->pile_a, mem->pile_b);
 }
