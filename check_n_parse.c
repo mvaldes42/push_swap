@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:35:08 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 15:34:48 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 17:22:43 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static char	*concatenate_args(t_memory *mem, char **list_origin)
 	return (concatenated);
 }
 
-void	check_n_parse(t_memory *mem, char **list_origin, int argc)
+void	check_n_parse(t_memory *mem, char **list_origin)
 {
 	long long	i;
 	long long	num;

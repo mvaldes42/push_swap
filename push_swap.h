@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 15:54:14 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 17:25:34 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,11 @@ int		reverse_rotate(int *pile, int pile_len);
 
 void	exec_n_print(t_memory *mem, char *op, char pile);
 
-void	check_n_parse(t_memory *mem, char **list_origin, int argc);
+void	check_n_parse(t_memory *mem, char **list_origin);
 
-void	sort_buckets(t_memory *mem, int *pile_a, int *pile_b, int *pile_a_sort);
-void	sort_lst_a(t_memory *mem, int *pile_a, int *pile_b);
-void	push_back_to_a(t_memory *mem, int *pile_a, int *pile_b);
+void	sort_buckets(t_memory *mem, int *pile_a_sort);
+void	sort_lst_a(t_memory *mem, int *pile_a);
+void	push_back_to_a(t_memory *mem, int *pile_b);
 
 void	find_ope(t_memory *mem, int index, int pile_len, char lst_name);
 void	sort_three_ascend(t_memory *mem, int *pile, char lst_name);

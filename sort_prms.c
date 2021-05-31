@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 16:23:37 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 17:25:47 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,16 @@ void	sort_three_descend(t_memory *mem, int *pile, char lst_name)
 void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
 {
 	int	*pile_a_sorted;
-	int	i;
 
 	pile_a_sorted = stealth_sort(pile_a, mem->pile_a_len);
 	if (!memcmp(pile_a, pile_a_sorted, sizeof(&pile_a_sorted)))
 		exit(EXIT_SUCCESS);
 	// print_piles(pile_a, pile_a_sorted, mem->pile_a_len, mem->pile_a_len);
-	sort_buckets(mem, pile_a, pile_b, pile_a_sorted);
+	sort_buckets(mem, pile_a_sorted);
 	// printf("\n //// NOW SORTING A ////\n");
-	sort_lst_a(mem, pile_a, pile_b);
+	sort_lst_a(mem, pile_a);
 	// printf("\n //// NOW PUSHING B TO A ////\n");
-	push_back_to_a(mem, pile_a, pile_b);
+	push_back_to_a(mem, pile_b);
 	// __F_PRINT_LST__;
 	// printf("\n\n//COUNT : %d//\n\n", mem->ope_count);
 }

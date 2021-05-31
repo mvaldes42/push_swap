@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:54:43 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 15:35:32 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 17:25:35 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,10 @@ void	buckets_loop(t_memory *mem, int *pile_a_sort, int i, int j)
 			i++;
 	}
 }
-void	sort_buckets(t_memory *mem, int *pile_a, int *pile_b, int *pile_a_sort)
+void	sort_buckets(t_memory *mem, int *pile_a_sort)
 {
 	int	j;
 	int	i;
-	int	count;
 
 	j = 1;
 	while (j < mem->degree)
@@ -60,7 +59,7 @@ void	sort_buckets(t_memory *mem, int *pile_a, int *pile_b, int *pile_a_sort)
 	}
 }
 
-void	sort_lst_a(t_memory *mem, int *pile_a, int *pile_b)
+void	sort_lst_a(t_memory *mem, int *pile_a)
 {
 	int	i;
 	int	pile_a_ascending;
@@ -88,7 +87,7 @@ void	sort_lst_a(t_memory *mem, int *pile_a, int *pile_b)
 	}
 }
 
-void	push_back_to_a(t_memory *mem, int *pile_a, int *pile_b)
+void	push_back_to_a(t_memory *mem, int *pile_b)
 {
 	int	*pile_nested_sorted;
 	int	i;
