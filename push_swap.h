@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 14:59:10 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 15:54:14 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <float.h>
+# include <math.h>
 
 # define PUSH "push"
 # define SWAP "swap"

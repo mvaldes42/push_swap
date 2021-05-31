@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:14:17 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 15:07:40 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 15:34:41 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	reverse_rotate(int *pile, int pile_len)
 			i--;
 		}
 		pile[0] = last;
-		printf("\n\npile_len= %d ==>\n", pile_len);
 		return (1);
 	}
 	return (0);
@@ -48,7 +47,6 @@ int	rotate(int *pile, int pile_len)
 			i++;
 		}
 		pile[pile_len - 1] = last;
-		printf("\n\npile_len= %d ==>\n", pile_len);
 		return (1);
 	}
 	return (0);
@@ -71,8 +69,6 @@ int	push(int *pile_from, int *pile_to, int len_from, int len_to)
 		while (--i > 0)
 			pile_to[i] = pile_to[i - 1];
 		pile_to[0] = first_from;
-		printf("\n\npile_from_len= %d\n", len_from);
-		printf("pile_to_len= %d ==>\n", len_to);
 		return (1);
 	}
 	return (0);
@@ -85,12 +81,10 @@ int	swap(int *pile, int len)
 
 	if (len >= 2)
 	{
-		printf("len= %d, pile[0]= %d, pile[1]: %d\n", len, pile[0], pile[1]);
 		first = pile[0];
 		second = pile[1];
 		pile[0] = second;
 		pile [1] = first;
-		printf("len= %d, pile[0]= %d, pile[1]: %d\n", len, pile[0], pile[1]);
 		return (1);
 	}
 	return (0);

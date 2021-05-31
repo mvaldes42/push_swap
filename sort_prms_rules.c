@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:54:43 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 15:21:58 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 15:35:32 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,12 @@ void	sort_buckets(t_memory *mem, int *pile_a, int *pile_b, int *pile_a_sort)
 	int	i;
 	int	count;
 
-	mem->degree = 2;
 	j = 1;
 	while (j < mem->degree)
 	{
-		printf("pivot_index= ((mem->nb_prms(%d) / degree) * j) - 1: %d, pivot_value= %d\n", mem->nb_prms,((mem->nb_prms / mem->degree) * j) - 1, pile_a_sort[((mem->nb_prms / mem->degree) * j) - 1]);
-		printf("count : %d\n", count);
-		printf("(mem->nb_prms / degree)) = %d\n", (mem->nb_prms / mem->degree));
+		// printf("pivot_index= ((mem->nb_prms(%d) / degree) * j) - 1: %d, pivot_value= %d\n", mem->nb_prms,((mem->nb_prms / mem->degree) * j) - 1, pile_a_sort[((mem->nb_prms / mem->degree) * j) - 1]);
+		// printf("count : %d\n", count);
+		// printf("(mem->nb_prms / degree)) = %d\n", (mem->nb_prms / mem->degree));
 		i = 0;
 		buckets_loop(mem, pile_a_sort, i, j);
 		j++;
@@ -69,11 +68,11 @@ void	sort_lst_a(t_memory *mem, int *pile_a, int *pile_b)
 
 	i = 0;
 	pile_a_ascending = is_pile_ascend(pile_a, mem->pile_a_len);
-	printf("pile_a_ascending= %d\n", pile_a_ascending);
-	__F_PRINT_LST__
+	// printf("pile_a_ascending= %d\n", pile_a_ascending);
+	// __F_PRINT_LST__
 	while (!pile_a_ascending)
 	{
-		printf("mem->pile_a_len= %d\n", mem->pile_a_len);
+		// printf("mem->pile_a_len= %d\n", mem->pile_a_len);
 		if (mem->pile_a_len == 3)
 			sort_three_ascend(mem, pile_a, LIST_A);
 		else
@@ -100,7 +99,7 @@ void	push_back_to_a(t_memory *mem, int *pile_a, int *pile_b)
 	while (mem->pile_b_len > 0)
 	{
 		current = pile_nested_sorted[i];
-		printf("mem->pile_b_len= %d\n", mem->pile_b_len);
+		// printf("mem->pile_b_len= %d\n", mem->pile_b_len);
 		if (mem->pile_b_len == 3)
 			sort_three_descend(mem, pile_b, LIST_B);
 		while (pile_b[0] != current)
