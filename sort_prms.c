@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 17:25:47 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 19:03:29 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,21 +100,9 @@ void	sort_prms(t_memory *mem)
 {
 	mem->pile_b = (int *)malloc(sizeof(int) * (mem->nb_prms + 1));
 	ft_memset(mem->pile_b, 0, sizeof(int) * (mem->nb_prms + 1));
-	// if (mem->nb_prms >= 500)
-	// 	mem->degree = 14;
-	// else if (mem->nb_prms == 150)
-	// 	mem->degree = 8;
-	// else if (mem->nb_prms >= 200 && mem->nb_prms < 500)
-	// 	mem->degree = 8;
-	// else if (mem->nb_prms >= 100 && mem->nb_prms < 200)
-	// 	mem->degree = 4;
-	// else if (mem->nb_prms <= 50 && mem->nb_prms > 10)
-	// 	mem->degree = 4;
-	// else if (mem->nb_prms <= 10)
-	// 	mem->degree = 2;
 	mem->degree = (0.0239011 * mem->nb_prms) + 2.3299;
-	// mem->degree = pow(-0.0000125529 * mem->nb_prms, 2) + (0.0305552 * mem->nb_prms) + 1.89533;
 	sort_prms_cmds(mem, mem->pile_a, mem->pile_b);
 	// printf("mem->nb_prms: %d, mem->degree : %d\n", mem->nb_prms, mem->degree);
 	// printf("%d\n", ((int)(0.0239011 * mem->nb_prms) + 2.3299));
+	__F_PRINT_LST__
 }

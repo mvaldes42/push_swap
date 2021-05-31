@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:49:48 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 17:53:24 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 18:17:23 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,11 @@ int	find_smallest_nb(int *array, int len)
 		i++;
 	}
 	return (smallest);
+}
+
+void	exit_success(t_memory *mem)
+{
+	free(mem->pile_b);
+	free(mem->pile_a);
+	exit(EXIT_SUCCESS);
 }

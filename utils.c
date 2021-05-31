@@ -6,14 +6,18 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:03:27 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 17:44:40 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 18:48:34 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	exit_fail(void)
+void	exit_fail(t_memory *mem)
 {
+	if (mem->pile_a)
+		free(mem->pile_a);
+	if (mem->pile_b)
+		free(mem->pile_b);
 	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }
@@ -25,7 +29,7 @@ int	isnum(char *c)
 		if ((*c >= '0' && *c <= '9') ||*c == '-')
 			c++;
 		else
-			exit_fail();
+			return(0);
 	}
 	return (1);
 }
@@ -55,7 +59,7 @@ int	word_count(const char *s, char c)
 			i++;
 	}
 	if (count == 0)
-		exit_fail();
+		return(0);
 	return (count);
 }
 

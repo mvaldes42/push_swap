@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:35:08 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 17:52:28 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 18:21:12 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	isunique(int num, int *pile_a, int len)
 	while (i < len)
 	{
 		if (pile_a[i] == num)
-			exit_fail();
+			return(0);
 		i++;
 	}
 	return (1);
@@ -77,8 +77,8 @@ void	check_n_parse(t_memory *mem, char **list_origin)
 
 	mem->prms = concatenate_args(mem, list_origin);
 	mem->nb_prms = word_count(mem->prms, ' ');
-	if (mem->nb_prms <= 2)
-		exit(EXIT_SUCCESS);
+	if (mem->nb_prms < 2)
+		exit_success(mem);
 	// printf("wcont : %d\n", mem->nb_prms);
 	mem->pile_a = (int *)malloc(sizeof(int) * (mem->nb_prms + 1));
 	ft_memset(mem->pile_a, '\0', sizeof(int) * (mem->nb_prms + 1));
@@ -89,10 +89,10 @@ void	check_n_parse(t_memory *mem, char **list_origin)
 		if (isnum(mem->prms_mod[i]))
 			num = ft_atoi(mem->prms_mod[i]);
 		else
-			exit_fail();
+			exit_fail(mem);
 		if (!(num <= INT_MAX && num >= INT_MIN) || \
 		(i > 0 && (!isunique(num, mem->pile_a, mem->pile_a_len))))
-			exit_fail();
+			exit_fail(mem);
 		mem->pile_a[i] = num;
 		mem->pile_a_len++;
 		i++;
