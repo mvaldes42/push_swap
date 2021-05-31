@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 15:16:22 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/05/31 15:24:33 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
 	int	i;
 
 	pile_a_sorted = stealth_sort(pile_a, mem->pile_a_len);
+	if (!memcmp(pile_a, pile_a_sorted, sizeof(&pile_a_sorted)))
+		exit(EXIT_SUCCESS);
 	print_piles(pile_a, pile_a_sorted, mem->pile_a_len, mem->pile_a_len);
 	sort_buckets(mem, pile_a, pile_b, pile_a_sorted);
 	printf("\n //// NOW SORTING A ////\n");
