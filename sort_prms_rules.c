@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:54:43 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/01 08:43:05 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 08:47:04 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	sort_lst_a(t_memory *mem, int *pile_a)
 			smallest_nb = find_smallest_nb(pile_a, mem->pile_a_len);
 			// printf("smallest: %d\n", smallest_nb);
 			find_ope(mem, find_idx(pile_a, smallest_nb), mem->pile_a_len, LIST_A);
-			if (pile_a[0] == smallest_nb && mem->pile_a_len != 1)
+			if (pile_a[0] == smallest_nb && mem->pile_a_len > 2)
 				exec_n_print(mem, PUSH, LIST_A);
 		}
 		pile_a_ascending = is_pile_ascend(pile_a, mem->pile_a_len);
