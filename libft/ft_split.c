@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvaldes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 12:05:53 by mvaldes           #+#    #+#             */
-/*   Updated: 2019/11/19 12:06:00 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 10:25:38 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		word_count(const char *s, char c)
+static int	word_count(const char *s, char c)
 {
 	unsigned int	i;
 	unsigned int	count;
@@ -31,14 +31,14 @@ static int		word_count(const char *s, char c)
 	return (count);
 }
 
-static char		**no_occurence(char **dest, const char *s)
+static char	**no_occurence(char **dest, const char *s)
 {
 	dest[0] = ft_strdup(s);
 	dest[1] = 0;
 	return (dest);
 }
 
-static char		**ft_split2(char const *s, char c)
+static char	**ft_split2(char const *s, char c)
 {
 	int		start;
 	int		end;
@@ -48,8 +48,7 @@ static char		**ft_split2(char const *s, char c)
 	start = 0;
 	end = 0;
 	i = 0;
-	if (!(dest = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1))))
-		return (NULL);
+	dest = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
 	while (i != word_count(s, c))
 	{
 		while (s[start] == c)
@@ -67,7 +66,7 @@ static char		**ft_split2(char const *s, char c)
 	return (dest);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	if (!(s))
 		return (NULL);

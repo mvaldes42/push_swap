@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:33:44 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/01 08:51:29 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 10:06:58 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,19 @@ static int	exec_n_print_push(t_memory *mem, int *pile_a, int *pile_b, char c)
 	return (1);
 }
 
-static int	exec_n_print_reverse_rotate(t_memory *mem, int *pile_a, int *pile_b, char c)
+static int	exec_n_print_reverse_rotate(t_memory *mem, int *pile_a, \
+			int *pile_b, char c)
 {
 	int	a;
 	int	b;
 
 	a = 0;
 	b = 0;
-	if ((c == LIST_A || c == BOTH_LST) && reverse_rotate(pile_a, mem->pile_a_len))
+	if ((c == LIST_A || c == BOTH_LST) \
+		&& reverse_rotate(pile_a, mem->pile_a_len))
 		a = 1;
-	if ((c == LIST_B || c == BOTH_LST) && reverse_rotate(pile_b, mem->pile_b_len))
+	if ((c == LIST_B || c == BOTH_LST) \
+		&& reverse_rotate(pile_b, mem->pile_b_len))
 		b = 1;
 	if (a && b)
 		printf(REVERSE_ROTATE_ALL);
@@ -103,5 +106,4 @@ void	exec_n_print(t_memory *mem, char *operation, char pile_n)
 	else if (ft_strncmp(operation, ROTATE, length) == 0)
 		exec_n_print_rotate(mem, mem->pile_a, mem->pile_b, pile_n);
 	mem->ope_count++;
-	// __F_PRINT_LST__
 }

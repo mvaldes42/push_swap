@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:03:27 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 18:48:34 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 11:18:26 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	isnum(char *c)
 {
 	while (*c)
 	{
-		if ((*c >= '0' && *c <= '9') ||*c == '-')
+		if ((*c >= '0' && *c <= '9') || *c == '-')
 			c++;
 		else
-			return(0);
+			return (0);
 	}
 	return (1);
 }
@@ -59,7 +59,7 @@ int	word_count(const char *s, char c)
 			i++;
 	}
 	if (count == 0)
-		return(0);
+		return (0);
 	return (count);
 }
 

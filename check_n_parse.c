@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:35:08 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 18:21:12 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 10:05:41 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static int	isunique(int num, int *pile_a, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len)
 	{
 		if (pile_a[i] == num)
-			return(0);
+			return (0);
 		i++;
 	}
 	return (1);
@@ -65,8 +65,6 @@ static char	*concatenate_args(t_memory *mem, char **list_origin)
 			concatenated[k++] = list_origin[i][j];
 		concatenated[k++] = ' ';
 	}
-	// printf("params with spaces : %d\n", mem->size_spc);
-	// printf("conca : %s\n", concatenated);
 	return (concatenated);
 }
 
@@ -79,7 +77,6 @@ void	check_n_parse(t_memory *mem, char **list_origin)
 	mem->nb_prms = word_count(mem->prms, ' ');
 	if (mem->nb_prms < 2)
 		exit_success(mem);
-	// printf("wcont : %d\n", mem->nb_prms);
 	mem->pile_a = (int *)malloc(sizeof(int) * (mem->nb_prms + 1));
 	ft_memset(mem->pile_a, '\0', sizeof(int) * (mem->nb_prms + 1));
 	mem->prms_mod = ft_split(mem->prms, ' ');

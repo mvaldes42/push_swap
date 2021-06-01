@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 18:16:45 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 10:04:28 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <float.h>
-# include <math.h>
 
 # define PUSH "push"
 # define SWAP "swap"
@@ -42,25 +41,6 @@
 # define REVERSE_ROTATE_A "rra\n"
 # define REVERSE_ROTATE_B "rrb\n"
 # define REVERSE_ROTATE_ALL "rrr\n"
-
-/// TO DELETE BEFORE FINISHING : ONLY EASIER TO CODE
-# define __F_PRINT_LST__ print_piles(mem->pile_a, mem->pile_b, mem->pile_a_len, mem->pile_b_len);
-
-# define F_SWAP_A exec_n_print(mem, SWAP, LIST_A);
-# define F_SWAP_B exec_n_print(mem, SWAP, LIST_B);
-# define F_SWAP_ALL exec_n_print(mem, SWAP, BOTH_LST);
-
-# define F_PUSH_A exec_n_print(mem, PUSH, LIST_B);
-# define F_PUSH_B exec_n_print(mem, PUSH, LIST_A);
-
-# define F_ROTATE_A exec_n_print(mem, ROTATE, LIST_A);
-# define F_ROTATE_B exec_n_print(mem, ROTATE, LIST_B);
-# define F_ROTATE_ALL exec_n_print(mem, ROTATE, BOTH_LST);
-
-# define F_REVERSE_ROTATE_A exec_n_print(mem, REVERSE_ROTATE, LIST_A);
-# define F_REVERSE_ROTATE_B exec_n_print(mem, REVERSE_ROTATE, LIST_B);
-# define F_REVERSE_ROTATE_ALL exec_n_print(mem, REVERSE_ROTATE, BOTH_LST);
-/////////
 
 typedef struct s_memory
 {
@@ -88,9 +68,7 @@ void	print_piles(int *pile_a, int *pile_b, int a_len, int b_len);
 
 void	ft_swap(int *xp, int *yp);
 int		find_idx(int *list, long num);
-// int		array_len(int *pile);
 float	find_average(int *list, int longueur);
-// int		find_cls_to_avrg(int *list, float average);
 
 int		is_pile_ascend(int *pile, int len);
 int		*stealth_sort(int *pile, long size);
