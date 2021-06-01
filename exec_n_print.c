@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:33:44 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 15:36:26 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 08:33:50 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,5 @@ void	exec_n_print(t_memory *mem, char *operation, char pile_n)
 	else if (ft_strncmp(operation, ROTATE, length) == 0)
 		exec_n_print_rotate(mem, mem->pile_a, mem->pile_b, pile_n);
 	mem->ope_count++;
-	// __F_PRINT_LST__
+	__F_PRINT_LST__
 }

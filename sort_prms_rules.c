@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:54:43 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/05/31 17:25:35 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 08:43:05 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	buckets_loop(t_memory *mem, int *pile_a_sort, int i, int j)
 
 	count = 0;
 	int max = 0;
-	while (i < mem->pile_a_len && count <= mem->nb_prms / mem->degree)///!\ ATTENTION ICI
+	while (i < mem->pile_a_len && count <= mem->nb_prms / mem->degree)
 	{
 		nb_current = mem->pile_a[i];
 		min_nbr = pile_a_sort[mem->nb_prms / mem->degree * j - 1];
@@ -48,11 +48,9 @@ void	sort_buckets(t_memory *mem, int *pile_a_sort)
 	int	i;
 
 	j = 1;
-	while (j < mem->degree)
+	while (j < mem->degree && ((mem->nb_prms / mem->degree) * j) - 1 >= 0)
 	{
-		// printf("pivot_index= ((mem->nb_prms(%d) / degree) * j) - 1: %d, pivot_value= %d\n", mem->nb_prms,((mem->nb_prms / mem->degree) * j) - 1, pile_a_sort[((mem->nb_prms / mem->degree) * j) - 1]);
-		// printf("count : %d\n", count);
-		// printf("(mem->nb_prms / degree)) = %d\n", (mem->nb_prms / mem->degree));
+		printf("pivot_index= : %d, pivot_value= %d\n", ((mem->nb_prms / mem->degree) * j) - 1, pile_a_sort[((mem->nb_prms / mem->degree) * j) - 1]);
 		i = 0;
 		buckets_loop(mem, pile_a_sort, i, j);
 		j++;
