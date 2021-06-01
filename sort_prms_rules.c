@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:54:43 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/01 08:47:04 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 09:49:43 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ void	sort_buckets(t_memory *mem, int *pile_a_sort)
 	int	i;
 
 	j = 1;
+	// printf("((mem->nb_prms / mem->degree) * j) - 1: %d\n", ((mem->nb_prms / mem->degree) * j) - 1);
 	while (j < mem->degree && ((mem->nb_prms / mem->degree) * j) - 1 >= 0)
 	{
-		printf("pivot_index= : %d, pivot_value= %d\n", ((mem->nb_prms / mem->degree) * j) - 1, pile_a_sort[((mem->nb_prms / mem->degree) * j) - 1]);
+		// printf("pivot_index= : %d, pivot_value= %d\n", ((mem->nb_prms / mem->degree) * j) - 1, pile_a_sort[((mem->nb_prms / mem->degree) * j) - 1]);
 		i = 0;
 		buckets_loop(mem, pile_a_sort, i, j);
 		j++;

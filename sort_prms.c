@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/01 08:46:38 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 09:50:02 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,16 @@ void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
 	int	*pile_a_sorted;
 
 	pile_a_sorted = stealth_sort(pile_a, mem->pile_a_len);
-	if (!memcmp(pile_a, pile_a_sorted, sizeof(&pile_a_sorted)))
+	// print_piles(pile_a, pile_a_sorted, mem->pile_a_len, mem->pile_a_len);
+	if (!memcmp(pile_a, pile_a_sorted, mem->pile_a_len * sizeof(int)))
 		exit(EXIT_SUCCESS);
-	print_piles(pile_a, pile_a_sorted, mem->pile_a_len, mem->pile_a_len);
 	sort_buckets(mem, pile_a_sorted);
-	printf("\n //// NOW SORTING A ////\n");
+	// printf("\n //// NOW SORTING A ////\n");
 	sort_lst_a(mem, pile_a);
-	printf("\n //// NOW PUSHING B TO A ////\n");
+	// printf("\n //// NOW PUSHING B TO A ////\n");
 	push_back_to_a(mem, pile_b);
-	__F_PRINT_LST__;
-	printf("\n\n//COUNT : %d//\n\n", mem->ope_count);
+	// __F_PRINT_LST__;
+	// printf("\n\n//COUNT : %d//\n\n", mem->ope_count);
 }
 
 void	sort_prms(t_memory *mem)
@@ -100,6 +100,7 @@ void	sort_prms(t_memory *mem)
 	mem->degree = (0.0239011 * mem->nb_prms) + 2.3299;
 	if (mem->nb_prms <= 4)
 		mem->degree = 4;
+	// printf("mem->degree: %d\n", mem->degree);
 	sort_prms_cmds(mem, mem->pile_a, mem->pile_b);
-	__F_PRINT_LST__
+	// __F_PRINT_LST__
 }
