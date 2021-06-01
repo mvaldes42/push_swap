@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:03:27 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/01 11:18:26 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 12:27:45 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ float	ft_abs (float i)
 		return (i);
 }
 
-int	word_count(const char *s, char c)
+int	word_count(t_memory *mem, const char *s, char c)
 {
 	unsigned int	i;
 	unsigned int	count;
@@ -59,7 +59,7 @@ int	word_count(const char *s, char c)
 			i++;
 	}
 	if (count == 0)
-		return (0);
+		exit_fail(mem);
 	return (count);
 }
 

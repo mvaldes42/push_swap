@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:35:08 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/01 12:14:35 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/01 12:27:22 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	check_n_parse(t_memory *mem, char **list_origin)
 	long long	num;
 
 	mem->prms = concatenate_args(mem, list_origin);
-	mem->nb_prms = word_count(mem->prms, ' ');
+	mem->nb_prms = word_count(mem, mem->prms, ' ');
 	mem->pile_a = (int *)malloc(sizeof(int) * (mem->nb_prms + 1));
 	ft_memset(mem->pile_a, '\0', sizeof(int) * (mem->nb_prms + 1));
 	mem->prms_mod = ft_split(mem->prms, ' ');
