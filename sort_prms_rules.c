@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:54:43 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/01 10:07:53 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/02 11:27:54 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	push_back_to_a(t_memory *mem, int *pile_b)
 	int	i;
 	int	current;
 
-	pile_nested_sorted = stealth_sort(pile_b, mem->pile_b_len);
+	pile_nested_sorted = *stealth_sort(pile_b, mem->pile_b_len);
 	i = mem->pile_b_len - 1;
 	while (mem->pile_b_len > 0)
 	{
@@ -97,4 +97,5 @@ void	push_back_to_a(t_memory *mem, int *pile_b)
 		exec_n_print(mem, PUSH, LIST_B);
 		i--;
 	}
+	free(pile_nested_sorted);
 }

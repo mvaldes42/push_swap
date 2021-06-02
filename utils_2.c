@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:49:48 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/01 10:08:48 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/02 11:27:31 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	is_pile_ascend(int *pile, int len)
 	return (1);
 }
 
-int	*stealth_sort(int *pile, long size)
+int	**stealth_sort(int *pile, long size)
 {
-	int	*pile_sorted;
-	int	min_idx;
-	int	i;
-	int	j;
+	static int	*pile_sorted;
+	int			min_idx;
+	int			i;
+	int			j;
 
 	i = -1;
 	pile_sorted = (int *)malloc(sizeof(int) * (size + 1));
@@ -52,7 +52,7 @@ int	*stealth_sort(int *pile, long size)
 		ft_swap(&pile_sorted[min_idx], &pile_sorted[i]);
 		i++;
 	}
-	return (pile_sorted);
+	return (&pile_sorted);
 }
 
 int	*int_array_dup(int *src, int array_len)

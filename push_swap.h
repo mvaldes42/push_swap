@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:18:40 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/01 12:28:01 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/02 11:24:02 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		find_idx(int *list, long num);
 float	find_average(int *list, int longueur);
 
 int		is_pile_ascend(int *pile, int len);
-int		*stealth_sort(int *pile, long size);
+int		**stealth_sort(int *pile, long size);
 int		*int_array_dup(int *src, int array_len);
 int		find_smallest_nb(int *array, int len);
 
