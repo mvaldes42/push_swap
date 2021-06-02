@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:03:27 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/02 12:29:56 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/02 12:49:58 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,22 @@
 
 void	exit_fail(t_memory *mem)
 {
+	int	i;
+
+	i = 0;
+	if (mem->prms_mod)
+	{
+		while (mem->prms_mod[i])
+		{
+			mem->prms_mod[i];
+			i++;
+		}
+		free(mem->prms_mod);
+	}
 	if (mem->pile_a)
 		free(mem->pile_a);
 	if (mem->pile_b)
 		free(mem->pile_b);
-	if (mem->prms_mod)
-		free(mem->prms_mod);
 	if (mem->prms)
 		free(mem->prms);
 	ft_putstr_fd("Error\n", STDERR_FILENO);

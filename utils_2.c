@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:49:48 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/02 12:30:04 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/02 12:48:51 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,17 @@ int	find_smallest_nb(int *array, int len)
 
 void	exit_success(t_memory *mem)
 {
+	int	i;
+
+	i = 0;
+	while (mem->prms_mod[i])
+	{
+		mem->prms_mod[i];
+		i++;
+	}
+	free(mem->prms_mod);
 	free(mem->pile_b);
 	free(mem->pile_a);
-	free(mem->prms_mod);
 	free(mem->prms);
 	exit(EXIT_SUCCESS);
 }
