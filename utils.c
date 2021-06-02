@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:03:27 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/02 12:49:58 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/02 12:51:13 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	exit_fail(t_memory *mem)
 	{
 		while (mem->prms_mod[i])
 		{
-			mem->prms_mod[i];
+			free(mem->prms_mod[i]);
 			i++;
 		}
 		free(mem->prms_mod);
