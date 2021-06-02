@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:09:52 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/02 12:56:32 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/02 12:58:39 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	sort_prms_cmds(t_memory *mem, int *pile_a, int *pile_b)
 	if (!ft_memcmp(pile_a, pile_a_sorted, mem->pile_a_len * sizeof(int)))
 	{
 		free(pile_a_sorted);
-		exit(EXIT_SUCCESS);
+		exit_success(mem);
 	}
 	sort_buckets(mem, pile_a_sorted);
 	free(pile_a_sorted);
