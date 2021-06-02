@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 21:49:48 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/02 12:51:06 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/02 12:52:58 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ void	exit_success(t_memory *mem)
 		i++;
 	}
 	free(mem->prms_mod);
-	free(mem->pile_b);
 	free(mem->pile_a);
+	free(mem->pile_b);
 	free(mem->prms);
 	exit(EXIT_SUCCESS);
 }
