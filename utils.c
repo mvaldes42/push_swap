@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:03:27 by mvaldes           #+#    #+#             */
-/*   Updated: 2021/06/02 12:25:48 by mvaldes          ###   ########.fr       */
+/*   Updated: 2021/06/02 12:29:56 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	exit_fail(t_memory *mem)
 		free(mem->pile_b);
 	if (mem->prms_mod)
 		free(mem->prms_mod);
+	if (mem->prms)
+		free(mem->prms);
 	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }
